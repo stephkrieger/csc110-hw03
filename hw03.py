@@ -1,5 +1,5 @@
 """
-Name: (put your name here)
+Name: (Steph Krieger)
 Peers: (add any collaborators)
 References: (anything you checked to solve this)
 """
@@ -18,7 +18,7 @@ def read_five_ints():
     Updates the values inside the global variable grades (list)
     with each of the user's 5 input ints.
     If the user inputs are not digits, it prints
-    "Error in read_five_ints: input string is not for an integer",
+   "Error in read_five_ints: input string is not for an integer",
     and if the input converted to int is outside of [0,10], prints
     "Error in read_five_ints: input integer outside of range".
     """
@@ -29,7 +29,21 @@ def read_five_ints():
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
 
-        pass
+        in_str = input("Give me the next grade in [0 to 10]:")
+        
+        if not in_str.isdigit():
+            print("Error in read_five_ints: input string is not for an integer")
+            exit()
+        
+        num = int(in_str)
+        
+        if num < 0 or num > 10:
+            print("Error in read_five_ints: input integer outside of range")
+            exit()
+        
+        grades[idx] = num
+
+  
 
     #Anything with this indentation is NO LONGER inside the loop
 
@@ -45,7 +59,23 @@ def pick_averaging_method():
     Any other input prints
     'Error in pick_averaging_method: incorrect option picked'.
     """
-    pass
+    x = input("Pick 'a' for mean, 'b' for median, 'c' for mode: ")
+    if x == "a":
+        print("picked: Mean")
+        avg = statistics.mean(grades)
+        return avg
+    elif x == "b":
+        print("picked: Median")
+        avg = statistics.median(grades)
+        return avg
+    elif x == "c":
+        print("picked: Mode")
+        avg = statistics.mode(grades)
+        return avg
+    else:
+        print("Error in pick_averaging_method: incorrect option picked")
+        exit()
+
 
 # Task 3:
 #  Complete the function "pick_visualization" below:
@@ -58,7 +88,16 @@ def pick_visualization(average):
     Any other input prints
     'Error in pick_visualization: incorrect option picked'.
     """
-    pass
+   
+    word = input("Pick '1' for print average, or '2' for plot average: ")
+    if word == "1":
+        print_list_and_average(average)
+    elif word == "2":
+        plot_grades(average)
+    else:
+        print("Error in pick_visualization: incorrect option picked")
+        exit()
+    
 
 
 # ---------------------------------------
